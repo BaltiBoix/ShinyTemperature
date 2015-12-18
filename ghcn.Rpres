@@ -1,0 +1,65 @@
+ShinyTemperature Application.   
+========================================================
+author: Balti Boix   
+date: december 2015
+transition: rotate
+autosize: true
+
+<H2> Global Historical Climatology Network (NOAA) Temperatures for spanish stations  </H2>
+
+Global Historical Climatology Network
+========================================================
+
+
+The <STRONG>NOAA Global Historical Climatology Network - Daily (GHCN-Daily)</STRONG> dataset integrates daily climate observations
+from well over 90,000 land-based stations worldwide. Detailed information in the <a href="http://gis.ncdc.noaa.gov/all-records/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00861" target="_blank"><u>NOAA Web Page</u></a>.  
+
+The spanish stations have been selected. The data in the older stations goes back to 1920 with a gap during the spanish civil war.
+
+For this exercise the maximum and minimum temperatures have been used.
+
+<small>Temperatures are expressed as °C x 10. That is, 21.6 °C is the same as 216 °C x 10.</small> 
+
+
+<small>
+Instructions of ShinyTemperature application use
+========================================================
+
+<a href="https://baltiboix.shinyapps.io/ShinyTemperature" target="_blank"><u>ShinyTemperature</u></a> is an interactive application that shows historical temperatures for spanish meteorological stations.   
+
+The data is read from the ftp service of NOAA (USA) and saved in ```TData.rda```.  All the code used to generate this file can be found in my
+<a href="https://github.com/BaltiBoix/ghcn.git" target="_blank"><u>github repository</u></a>
+ / <a href="https://baltiboix.github.io/ghcn/ghcn.html" target="_blank"><u>gh-page</u></a>.
+
+The mode of use is simple: choose an station and a year an automatically the data from the database is shown as
+plots:
+
+      - A daily plot of maximum and minimum Temperatures (TMAX and TMIN)
+      - A box plot of monthly data.
+      
+The monthly data is also shown in a table where you choose between TMAX and TMIN:
+
+      - Monthly average temperatures in °C x 10
+      - Monthly standard deviation temperatures in °C x 10
+</small>
+
+<small>
+Spanish stations       /         Data Frame Col names 
+========================================================
+left: 55%
+```{r}
+load("TData.rda")
+cat(levels(TData$id),sep="\n")
+```
+***
+```{r}
+cat(names(TData),sep="\n")    
+```
+
+element is TMAX or TMIN 
+</small>
+
+Shiny Application Screenshot
+========================================================
+
+![Shiny App](ShinyApp.png)
